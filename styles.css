@@ -1,74 +1,83 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #151e27;
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
-header {
-    background-color: darkblue;
+.site-header {
+    background-color: #24353f;
     color: #fff;
-    padding: 20px;
-    position: fixed; /* Make the header fixed */
-    width: 100%; /* Set the header width to 100% */
-    height: 8%;
-    top: 0; /* Position the header at the top */
     text-align: center;
-    z-index: 5;
-}
-
-.content {
-    padding: 20px;
-    margin-top: 80px;
-}
-
-.flex-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    flex: 1;
-}
-
-.flex-item {
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.elon_overlay {
-    position: absolute;
+    padding: 10px 0;
+    position: fixed;
     top: 0;
     left: 0;
-    width: auto; /* Video scales with the container */
-    height: auto; /* Video scales with the container */
-    max-width: 100%;
-    max-height: 100%;
-    z-index: 1; /* Place the video above the image */
-}
-
-.image-container {
-    position: relative;
-}
-
-.video-container {
-    position: absolute;
-    top: 24%;
-    left: 34.5%;
-    width: 55.5%; /* Video container takes the full size of the image */
-    height: 68%; /* Video container takes the full size of the image */
-    z-index: 2; /* Place the video container above the image */
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+    width: 100%;
+    z-index: 999;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.site-header.scrolled {
+    background-color: #151e27;
+    color: #fff;
+}
+
+.site-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.site-nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.site-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.logo-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.gallery {
+    margin: 70px 20px 20px;
+    text-align: center;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    vertical-align: top;
+}
+
+.contact-section {
+    padding: 20px;
+}
+
+.slide {
+    display: flex;
+    justify-self: center;
+    align-items: center;
     flex-direction: column;
-    min-height: 100vh;
+    margin-bottom: 0;
+}
+
+.slide .video-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    height: 80vh;
 }
