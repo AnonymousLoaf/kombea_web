@@ -53,7 +53,9 @@ body {
 }
 
 .site-nav a:hover {
-    color: #FFA500; /* You can change this to your preferred hover color */
+    border: 2px solid #FFA500;
+    border-radius: 5px;
+    padding: 5px 10px;
 }
 
 .gallery {
@@ -144,6 +146,9 @@ body {
     margin-right: 30px;
 }
 
-.highlighted-link {
-    color: #FFA500;
+.site-nav a.active {
+    border: 2px solid #FFA500;
+    background-color: #FFA500;
+    border-radius: 5px;
+    padding: 5px 10px;
 }

@@ -47,8 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Select only the links in the main site navigation
-    console.log("DOMContentLoaded event fired");
     const navLinks = document.querySelectorAll(".site-nav a");
 
     // Add a click event listener to each link
@@ -60,11 +58,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: "smooth" });
+
+                // Remove the "active" class from all links
+                navLinks.forEach((navLink) => {
+                    navLink.classList.remove("active");
+                });
+
+                // Add the "active" class to the clicked link
+                link.classList.add("active");
             }
         });
     });
 
-    // Add a scroll event listener to track the section in view
     window.addEventListener("scroll", function () {
         const scrollPosition = window.scrollY;
 
@@ -77,9 +82,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 const sectionBottom = sectionTop + targetSection.clientHeight;
 
                 if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                    link.classList.add("highlighted-link");
-                } else {
-                    link.classList.remove("highlighted-link");
+                    // Remove the "active" class from all links
+                    navLinks.forEach((navLink) => {
+                        navLink.classList.remove("active");
+                    });
+
+                    // Add the "active" class to the current section's link
+                    link.classList.add("active");
                 }
             }
         });
