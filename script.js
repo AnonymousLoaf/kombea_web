@@ -25,3 +25,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Select all links inside the site navigation
+    const navLinks = document.querySelectorAll(".site-header a");
+
+    // Add a click event listener to each link
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent the default link behavior
+
+            // Get the target element's ID based on the link's href
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                // Scroll to the target element smoothly
+                targetElement.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    });
+});
