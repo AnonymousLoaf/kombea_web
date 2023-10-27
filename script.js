@@ -1,4 +1,4 @@
-window.addEventListener('scroll', function() {
+document.addEventListener('scroll', function() {
     const header = document.querySelector('.site-header');
     if (window.scrollY > 0) {
         header.classList.add('scrolled');
@@ -41,6 +41,46 @@ document.addEventListener("DOMContentLoaded", function () {
             if (targetElement) {
                 // Scroll to the target element smoothly
                 targetElement.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Select only the links in the main site navigation
+    console.log("DOMContentLoaded event fired");
+    const navLinks = document.querySelectorAll(".site-nav a");
+
+    // Add a click event listener to each link
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    });
+
+    // Add a scroll event listener to track the section in view
+    window.addEventListener("scroll", function () {
+        const scrollPosition = window.scrollY;
+
+        navLinks.forEach((link) => {
+            const targetId = link.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                const sectionTop = targetSection.offsetTop;
+                const sectionBottom = sectionTop + targetSection.clientHeight;
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    link.classList.add("highlighted-link");
+                } else {
+                    link.classList.remove("highlighted-link");
+                }
             }
         });
     });
