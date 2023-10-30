@@ -7,8 +7,7 @@ body {
 }
 
 .site-header {
-    background-color: #24353f;
-    color: #fff;
+    background-color: white;
     text-align: center;
     padding: 10px 0;
     position: fixed;
@@ -34,14 +33,20 @@ body {
 
 .site-nav li {
     display: inline;
-    margin-right: 20px;
 }
 
 .site-nav a {
+    border: 2px solid transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
     text-decoration: none;
-    color: #fff;
+    color: #151e27;
     font-weight: bold;
     transition: color 0.3s;
+}
+
+.site-nav a.scrolled {
+    color: #fff;
 }
 
 .logo-button {
@@ -52,7 +57,7 @@ body {
 }
 
 .site-nav a:hover {
-    border: 2px solid #FFA500;
+    border: 2px solid #00aae8;
     border-radius: 5px;
     padding: 5px 10px;
 }
@@ -152,8 +157,8 @@ body {
 }
 
 .site-nav a.active {
-    border: 2px solid #FFA500;
-    background-color: #FFA500;
+    border: 2px solid #00aae8;
+    background-color: #00aae8;
     border-radius: 5px;
     padding: 5px 10px;
 }

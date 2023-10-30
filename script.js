@@ -1,11 +1,19 @@
+const navLinks = document.querySelectorAll('.site-nav a');
+
 document.addEventListener('scroll', function() {
     const header = document.querySelector('.site-header');
-    if (window.scrollY > 0) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
+
+    navLinks.forEach((link) => {
+        if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+            link.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+            link.classList.remove('scrolled');
+        }
+    });
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const audioBoxes = document.querySelectorAll(".audio-item");
