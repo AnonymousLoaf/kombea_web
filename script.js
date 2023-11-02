@@ -125,3 +125,12 @@ document.addEventListener('DOMContentLoaded', function () {
         siteNav.classList.toggle('open'); // Toggle the 'open' class
     });
 });
+
+function openHam() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
