@@ -115,22 +115,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
-document.addEventListener('DOMContentLoaded', function () {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const siteNav = document.querySelector('.site-nav');
-
-    // Add a click event listener to the mobile menu icon
-    mobileMenu.addEventListener('click', function () {
-        siteNav.classList.toggle('open'); // Toggle the 'open' class
-    });
-});
-
-function openHam() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "block";
-    }
-}
