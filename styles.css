@@ -192,3 +192,20 @@ body {
         z-index: 999;
     }
 }
+
+.nav-row {
+    display: flex;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-right: 3vh; /* Adjust the spacing between items */
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.nav-item img {
+    width: 100%; /* Adjust the image size as needed */
+    height: auto;
+    cursor: pointer;
+}
