@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -6,10 +27,10 @@ body {
     scroll-behavior: smooth; /* Enable smooth scrolling */
 }
 
+/*
 .site-header {
     background-color: white;
     text-align: center;
-    padding: 10px 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -19,41 +40,73 @@ body {
     justify-content: space-between;
     align-items: center;
     transition: background-color 0.3s;
+}*/
+
+.site-header {
+    background-color: white;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    transition: background-color 0.3s;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.nav-item {
+    margin-right: 0;
+}
+
+.nav-item a {
+    border: 2px solid transparent;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #151e27;
+    font-weight: 550;
+    transition: color 0.3s;
+    padding: 0.5rem;
+}
+
+.nav-item a:hover {
+    border: 2px solid #00aae8;
+    border-radius: 5px;
 }
 
 .site-header.scrolled {
     background-color: #151e27;
 }
 
-.site-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.site-nav li {
-    display: inline;
-}
-
-.site-nav a {
-    border: 2px solid transparent;
-    padding: 5px 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #151e27;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.site-nav a.scrolled {
+.nav-menu a.scrolled {
     color: #fff;
-}
-
-.logo-button {
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
 }
 
 .site-nav a:hover {
@@ -61,6 +114,14 @@ body {
     border-radius: 5px;
     padding: 5px 10px;
 }
+
+.nav-item a.active {
+    border: 2px solid #00aae8;
+    background-color: #00aae8;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+*/
 
 .gallery {
     text-align: center;
@@ -156,52 +217,56 @@ body {
     margin-right: 30px;
 }
 
-.site-nav a.active {
-    border: 2px solid #00aae8;
-    background-color: #00aae8;
-    border-radius: 5px;
-    padding: 5px 10px;
-}
-
 #logo {
     max-width: 180px;
 }
 
-#mobile-menu {
-    display: none;
-}
-
-@media (max-width: 980px) {
-    .site-nav li {
-        display: none;
-    }
-
-    .site-header {
+@media only screen and (max-width: 768px) {
+    .nav-menu {
         position: fixed;
+        left: -100%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+    .nav-menu.scrolled {
+        background-color: #151e27;
     }
 
-    #mobile-menu {
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item{
+        margin: 2.5rem 0;
+    }
+
+    .hamburger {
         display: block;
-        position: absolute;
-        z-index: 999;
-        right: 20px;
-        top: 0;
+        cursor: pointer;
     }
-}
 
-.nav-row {
-    display: flex;
-}
+    .bar.scrolled {
+        background-color: white;
+        background-color: white;
+    }
 
-.nav-item {
-    display: inline-block;
-    margin-right: 3vh; /* Adjust the spacing between items */
-    margin-top: 3vh;
-    margin-bottom: 3vh;
-}
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
 
-.nav-item img {
-    width: 100%; /* Adjust the image size as needed */
-    height: auto;
-    cursor: pointer;
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
 }

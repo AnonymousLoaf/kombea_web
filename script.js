@@ -1,17 +1,29 @@
 // This changes the header color on scroll and the text for the links
 document.addEventListener('scroll', function() {
     const header = document.querySelector('.site-header');
-    const navLinks = document.querySelectorAll('.site-nav a');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelectorAll('.bar');
 
-    navLinks.forEach((link) => {
-        if (window.scrollY > 0) {
-            header.classList.add('scrolled');
+    if (window.scrollY > 0) {
+        navLinks.forEach((link) => {
             link.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+        });
+        hamburger.forEach((bar) => {
+            bar.classList.add('scrolled');
+        });
+        header.classList.add('scrolled');
+        navMenu.classList.add('scrolled');
+    } else {
+        navLinks.forEach((link) => {
             link.classList.remove('scrolled');
+        });
+        hamburger.forEach((bar) => {
+            bar.classList.remove('scrolled');
+        });
+        header.classList.remove('scrolled');
+        navMenu.classList.remove('scrolled');
         }
-    });
 });
 
 // This is for the audio links on the four boxes
@@ -35,28 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // This is the scroll function for the links in the header
 document.addEventListener("DOMContentLoaded", function () {
-    // Select all links inside the site navigation
-    const navLinks = document.querySelectorAll(".site-header a");
-
-    // Add a click event listener to each link
-    navLinks.forEach((link) => {
-        link.addEventListener("click", function (e) {
-            e.preventDefault(); // Prevent the default link behavior
-
-            // Get the target element's ID based on the link's href
-            const targetId = this.getAttribute("href").substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                // Scroll to the target element smoothly
-                targetElement.scrollIntoView({ behavior: "smooth" });
-            }
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.querySelectorAll(".site-nav a");
+    const navLinks = document.querySelectorAll(".navbar a");
     let isScrolling = false; // Variable to track scrolling
 
     window.addEventListener("scroll", function () {
@@ -115,3 +106,22 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}
+
+const navLink = document.querySelectorAll(".nav-link");
+
+navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}
